@@ -14,11 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/to',function (){
-   return view('thank');
-});
-Route::get('/sw','TohidController@result');
-Route::get('sw/{tohid}',"TohidController@index");
 
-Route::get('contact','TohidController@get_form');
-Route::post('contact','TohidController@post_data');
+Route::get('/sw','LaraController@index');
+
+Route::get('/home','HomeController@index');
+Route::get('/sw/{name}','HomeController@get_data');
+
+
+Route::get('/contact', 'HomeController@get_form');
+Route::post('/contact', 'HomeController@post_data');
