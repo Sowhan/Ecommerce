@@ -23,3 +23,6 @@ Route::get('/sw/{name}','HomeController@get_data');
 
 Route::get('/contact', 'HomeController@get_form');
 Route::post('/contact', 'HomeController@post_data');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
