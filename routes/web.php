@@ -20,9 +20,16 @@ Route::get('/sw','LaraController@index');
 Route::get('/home','HomeController@index');
 Route::get('/sw/{name}','HomeController@get_data');
 
+Route::prefix('contact')->group(function (){
 
-Route::get('/contact', 'HomeController@get_form');
-Route::post('/contact', 'HomeController@post_data');
-Auth::routes();
+Route::get('/', 'ContactController@index');
+Route::get('/create', 'ContactController@create');
+Route::post('/store', 'ContactController@store');
 
+Route::get('/edit/{id}', 'ContactController@edit');
+Route::post('/update/{id}', 'ContactController@update');
+Route::get('/delete/{id}', 'ContactController@delete');
 Route::get('/home', 'HomeController@index')->name('home');
+});
+
+Route::resource('product','ProductController');
